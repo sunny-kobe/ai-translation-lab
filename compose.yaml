@@ -1,0 +1,19 @@
+name: ai-translation-lab
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: translation_lab
+      POSTGRES_PASSWORD: translation_lab_local
+      POSTGRES_DB: translation_lab
+    ports:
+      - '127.0.0.1:54329:5432'
+    volumes:
+      - lab_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U translation_lab -d translation_lab']
+      interval: 2s
+      timeout: 3s
+      retries: 30
+volumes:
+  lab_pgdata:

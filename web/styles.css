@@ -1,0 +1,201 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #f3f6f7;
+  color: #162d39;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+}
+.lab-shell {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 32px;
+}
+.lab-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #12313b;
+  border-radius: 16px;
+  padding: 30px 36px;
+  color: #edf8f7;
+  margin-bottom: 22px;
+}
+.lab-header h1.ant-typography {
+  color: white;
+  margin: 8px 0 10px;
+  font-size: 34px;
+  letter-spacing: -1px;
+}
+.lab-header .ant-typography {
+  color: #bcd2d9;
+  margin: 0;
+}
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #70c6ba;
+  font-weight: 650;
+}
+.mode-note {
+  margin-bottom: 22px;
+}
+.lab-grid {
+  display: grid;
+  grid-template-columns: 350px minmax(0, 1fr);
+  gap: 22px;
+}
+.field {
+  margin: 18px 0;
+}
+.create-card label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.create-card textarea {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 13px;
+}
+.create-card .ant-btn-primary {
+  margin-top: 16px;
+}
+.history-card {
+  margin-top: 22px;
+}
+.history-card .ant-card-body {
+  padding: 10px;
+  max-height: 470px;
+  overflow: auto;
+}
+.job-button {
+  border: 1px solid transparent;
+  background: white;
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 14px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.job-button.selected {
+  border-color: #99d4ca;
+  background: #f0faf7;
+}
+.job-button:hover {
+  background: #f0f5f4;
+}
+.job-button > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  align-items: center;
+}
+.job-button .ant-typography {
+  font-size: 12px;
+}
+.job-button > span {
+  display: block;
+  color: #60737c;
+  font-size: 12px;
+  margin-top: 6px;
+}
+.job-summary {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.job-id {
+  display: block;
+  font-size: 12px;
+  margin: 6px 0 24px;
+}
+.result-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0 16px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.source-copy {
+  color: #6a7b86;
+  font-size: 12px;
+  margin-top: 5px;
+  white-space: pre-wrap;
+}
+.result-copy {
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin-bottom: 5px;
+}
+.export-note {
+  font-size: 12px;
+  margin: 22px 0 0 !important;
+}
+.empty-detail {
+  min-height: 410px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.empty-detail .ant-card-body {
+  max-width: 460px;
+}
+.empty-number {
+  letter-spacing: 5px;
+  color: #087e75;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: #83919a;
+  margin: 25px 0 5px;
+}
+footer a {
+  color: #087e75;
+}
+@media (max-width: 950px) {
+  .lab-shell {
+    padding: 16px;
+  }
+  .lab-grid {
+    grid-template-columns: 1fr;
+  }
+  .lab-header {
+    padding: 24px;
+  }
+  .lab-header h1.ant-typography {
+    font-size: 27px;
+  }
+  .lab-header {
+    gap: 10px;
+  }
+  .job-button > div {
+    justify-content: flex-start;
+    gap: 20px;
+  }
+}
+
+.lab-grid > aside,
+.lab-grid > section {
+  min-width: 0;
+}
+
+@media (max-width: 950px) {
+  .lab-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

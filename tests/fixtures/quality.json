@@ -1,0 +1,33 @@
+[
+  {
+    "key": "greeting",
+    "text": "Hello {name}!",
+    "language": "zh",
+    "glossary": [],
+    "candidate": "你好 {name}！",
+    "semantic_review": "unverified"
+  },
+  {
+    "key": "amount",
+    "text": "Pay %1$s to {{recipient}}",
+    "language": "fr",
+    "glossary": [],
+    "candidate": "Payer %1$s à {{recipient}}",
+    "semantic_review": "unverified"
+  },
+  {
+    "key": "brand",
+    "text": "Welcome to Nova",
+    "language": "es",
+    "glossary": [
+      {
+        "source": "Nova",
+        "targets": {
+          "es": "Nova"
+        }
+      }
+    ],
+    "candidate": "Bienvenido a Nova",
+    "semantic_review": "unverified"
+  }
+]
