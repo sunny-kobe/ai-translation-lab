@@ -120,7 +120,7 @@ try {
       region.locator('.job-summary').getByText('部分成功', { exact: true }),
     ).toBeVisible({ timeout: health.provider === 'zhipu' ? 240000 : 15000 });
     await expect(
-      region.getByText('PROVIDER_UNAVAILABLE', { exact: true }),
+      region.getByText('LANGUAGE_MISSING', { exact: true }),
     ).toBeVisible();
     steps.push('observed partial success and failed-language details');
     const beforeRetry = await (

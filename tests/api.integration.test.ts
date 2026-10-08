@@ -168,6 +168,13 @@ describe('PostgreSQL + Fastify + worker', () => {
     expect((await drain(id)).status).toBe('partial');
     const rows = await items(id);
     const zh = rows.find((r) => r.language === 'zh')!;
+    const fr = rows.find((r) => r.language === 'fr')!;
+    expect(fr.attempts).toBe(3);
+    const attempts = await pool.query(
+      'SELECT attempt FROM translation_attempts WHERE result_id=$1 ORDER BY id',
+      [fr.id],
+    );
+    expect(attempts.rows.map((row) => row.attempt)).toEqual([1, 2, 3]);
     await app.inject({
       method: 'PATCH',
       url: `/api/jobs/${id}/items/${zh.id}`,

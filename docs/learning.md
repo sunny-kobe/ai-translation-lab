@@ -4,7 +4,7 @@
 
 ## 第一课：追一条翻译的完整路径
 
-建议先用约 30 分钟完成这一课；这是练习安排，不是已学习时长。当前真实模型是 `glm-5.3-flash`，选择依据见 [模型记录](model-selection.md)。
+建议先用约 30 分钟完成这一课；这是练习安排，不是已学习时长。真实模型由 `.env` 的 `ZHIPU_MODEL` 决定；开始学习前先查看 `/api/health`，不要根据文档猜测当前模型。模型选择依据见 [模型记录](model-selection.md)。
 
 1. 打开页面，输入 `{"lesson.hello":"Hello {name}!"}`，只选中文，创建任务。记录页面任务 ID；翻译完成后先不要审核，确认导出不可用。
 2. 打开 `http://127.0.0.1:4310/api/docs`，用 `GET /api/jobs/{id}` 和 `GET /api/jobs/{id}/items` 查看刚才任务。观察 `status`、`attempts`、`revision`、`approved`。创建接口返回 HTTP 202 只说明任务已持久化；之后 worker 才调用模型。

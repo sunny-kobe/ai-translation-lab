@@ -167,6 +167,8 @@ export class Worker {
         [job.id],
       );
       for (const row of results) {
+        // claimKey returns the row read before its attempts increment.
+        const attempt = row.attempts + 1;
         const item = validated?.get(row.language);
         const itemCode =
           item?.error?.code ||
@@ -187,7 +189,7 @@ export class Worker {
             ].includes(code));
         const next = item?.text
           ? 'succeeded'
-          : row.attempts >= 3 || !retryable
+          : attempt >= 3 || !retryable
             ? 'failed'
             : 'queued';
         const delay =
@@ -195,7 +197,7 @@ export class Worker {
             ? Math.min(
                 60000,
                 (retryAfterMs || this.provider.retryDelayMs || 0) *
-                  2 ** Math.max(0, row.attempts - 1),
+                  2 ** (attempt - 1),
               )
             : 0;
         const updated = await client.query(
@@ -213,7 +215,7 @@ export class Worker {
           'INSERT INTO translation_attempts(result_id,attempt,outcome,error_code,duration_ms,call_id) VALUES($1,$2,$3,$4,$5,$6)',
           [
             row.id,
-            row.attempts,
+            attempt,
             updated.rowCount
               ? next === 'succeeded'
                 ? 'succeeded'

@@ -100,7 +100,7 @@ MODEL_COMPARE_ENABLED=1 npx tsx scripts/compare-models.ts
 6. `web/App.tsx` → `web/api.ts`：轮询、缓存、编辑冲突与导出。
 7. `tests/`、`scripts/`：用测试证据检验设计。
 
-设计细节见 [架构说明](docs/architecture.md)，个人学习验收见 [实验手册](docs/learning.md)，真实覆盖见 [验证记录](docs/verification.md)。默认配置仍为 Fake，只有显式配置智谱后才读取密钥并发远程模型请求。
+设计细节见 [架构说明](docs/architecture.md)，个人学习验收见 [实验手册](docs/learning.md)，真实覆盖见 [验证记录](docs/verification.md)。本轮实际验证见 [2026-10-05 验证报告](docs/verification-2026-10-05.md)，导师式课程安排见 [学习指南](docs/mentor-learning-guide.md)。默认配置仍为 Fake，只有显式配置智谱后才读取密钥并发远程模型请求。
 
 面试中的设计取舍和追问见 [面试材料](docs/interview.md)。当前批量模型请求以 key 为单位：一个 key 一次请求翻译全部所选语言，支持 50 种语言；结果仍按语言逐项持久化。worker 默认同时处理 2 个 key，可配置 1–4。
 
